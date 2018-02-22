@@ -1,0 +1,100 @@
+<!DOCTYPE>
+<html>
+
+<head>
+    <title>Background Video for Site</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+
+<body>
+    <video autoplay loop muted>
+        <source src="./background.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <div class="main-content">
+        <h3>WOAH THERE</h3>
+        <p>Holy crap thats beautiful! I don't know why you would ever want to pause it, but if you do, theres a button in the
+            corner to do just that... but why would you want to?</p>
+    </div>
+    <button class="toggle-play">Pause</button>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        .main-content {
+            margin: 15%;
+            padding: 16px;
+            max-width: 500px;
+        }
+
+        h3 {
+            color: #FFF;
+            font-size: 48px;
+            margin: 0 0 12px 0;
+        }
+
+        p {
+            color: #FFF;
+            font-size: 16px;
+        }
+
+        .toggle-play {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            height: 36px;
+            width: 72px;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        const video = document.querySelector('video');
+        const button = document.querySelector('.toggle-play')
+        let isPlaying = true;
+
+        function togglePlay() {
+            if (isPlaying) {
+                video.pause();
+                button.innerHTML = "Play";
+            } else {
+                video.play();
+                button.innerHTML = "Pause";
+            }
+            isPlaying = !isPlaying
+        }
+
+        button.addEventListener('click', togglePlay);
+
+
+    </script>
+</body>
+
+</html>
